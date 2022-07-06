@@ -1,5 +1,4 @@
 import { Button } from "../style/GlobalStyles";
-import { device } from "../style/Breakpoints";
 import styled from "styled-components";
 
 const Modal = ({ setOpenModal, card }) => {
@@ -57,7 +56,7 @@ const Modal = ({ setOpenModal, card }) => {
             </Logo>
           </CardInfo>
         </Body>
-        <Button onClick={() => setOpenModal(false)}>Close</Button>
+        <ButtonM onClick={() => setOpenModal(false)}>Close</ButtonM>
       </Container>
     </Background>
   );
@@ -83,8 +82,8 @@ const Container = styled.div`
   padding: 25px 15px;
   border-radius: 12px;
   background-color: white;
-  color: hsl(240, 27%, 16%);
-  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  color: rgb(30, 30, 52);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -172,6 +171,29 @@ const Logo = styled.div`
     @media (min-width: 1920px) and (max-width: 3000px) {
       width: 300px;
     }
+  }
+`;
+
+const ButtonM = styled(Button)`
+  background-color: rgb(230, 24, 127);
+  color: white;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px black;
+
+  &:hover {
+    transform: scale(1.1);
+    transition-duration: 500ms;
+  }
+
+  @media (min-width: 200px) and (max-width: 620px) {
+    padding: 10px 20px;
+    font-size: 0.85em;
+  }
+
+  @media (min-width: 1920px) and (max-width: 3000px) {
+    padding: 10px 45px;
+    font-size: 1.5em;
+    height: 55px;
   }
 `;
 

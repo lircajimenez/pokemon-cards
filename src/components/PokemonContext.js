@@ -16,7 +16,7 @@ export const PokemonProvider = ({ children }) => {
           {
             method: "GET",
             headers: {
-              "X-Api-Key": "f5b3f3b2-a557-401e-a7d7-ac88e821aff2",
+              "X-Api-Key": "f29778c0-a71d-499e-a234-2f9f677900d6",
             },
           }
         );
@@ -33,17 +33,15 @@ export const PokemonProvider = ({ children }) => {
 
   const getRandomCards = () => {
     const copy = [...allCards];
-    const shuffled = copy.sort(() => 0.5 - Math.random());
-    const result = shuffled.slice(0, 60);
+    const shuffle = copy.sort(() => 0.5 - Math.random());
+    const result = shuffle.slice(0, 60);
     setRandomCards(result);
-    console.log("random fired");
   };
 
   const getNewDeck = () => {
     setCounter((prevSate) => prevSate + 1);
     setStatus("loading");
     getRandomCards();
-    console.log("counter fired");
   };
 
   return (

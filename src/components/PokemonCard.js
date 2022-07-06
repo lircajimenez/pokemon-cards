@@ -25,6 +25,14 @@ const Wrapper = styled.div`
   img {
     width: 200px;
     height: 100%;
+
+    @media (min-width: 200px) and (max-width: 620px) {
+      width: 120px;
+    }
+
+    @media (min-width: 1920px) and (max-width: 3000px) {
+      width: 300px;
+    }
   }
 
   &:hover {
