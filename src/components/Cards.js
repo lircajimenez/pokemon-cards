@@ -7,7 +7,7 @@ import Header from "./Header";
 
 const Cards = () => {
   const { status, randomCards } = useContext(PokemonContext);
-  console.log(randomCards);
+
   return (
     <>
       <Header />

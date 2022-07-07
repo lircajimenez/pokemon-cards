@@ -9,7 +9,14 @@ import charizard from "../assets/charizard.svg";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { getRandomCards } = useContext(PokemonContext);
+  const { status, getRandomCards } = useContext(PokemonContext);
+
+  let isDisabled;
+  if (status === "loading") {
+    isDisabled = true;
+  } else if (status === "idle") {
+    isDisabled = false;
+  }
 
   return (
     <Container>
@@ -25,6 +32,7 @@ const Home = () => {
           </div>
           <div style={{ alignSelf: "center" }}>
             <ButtonC
+              disabled={isDisabled}
               onClick={() => {
                 getRandomCards();
                 navigate("/cards");
@@ -188,6 +196,13 @@ const ButtonC = styled(Button)`
   color: white;
   font-weight: 600;
   text-shadow: 1px 1px 2px black;
+
+  &:disabled,
+  &:hover:disabled {
+    background: #707070;
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
 
   &:hover {
     background-color: rgb(124, 222, 223);
