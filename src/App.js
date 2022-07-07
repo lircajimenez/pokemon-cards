@@ -1,19 +1,17 @@
-import { useContext } from "react";
-import { PokemonContext } from "./components/PokemonContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GlobalStyles } from "./style/GlobalStyles";
-import Header from "./components/Header";
+import Home from "./components/Home";
 import Cards from "./components/Cards";
-import Spinner from "./components/Spinner";
 
 const App = () => {
-  const { status } = useContext(PokemonContext);
-
   return (
-    <>
+    <Router>
       <GlobalStyles />
-      <Header />
-      {status === "loading" ? <Spinner /> : <Cards />}
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cards" element={<Cards />} />
+      </Routes>
+    </Router>
   );
 };
 

@@ -7,7 +7,7 @@ const PokemonCard = ({ card }) => {
 
   return (
     <>
-      <Wrapper>
+      <Wrapper tabIndex={0}>
         <img
           src={card.images.small}
           alt={`Card of ${card.name}`}

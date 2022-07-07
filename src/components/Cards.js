@@ -2,17 +2,28 @@ import { useContext } from "react";
 import { PokemonContext } from "./PokemonContext";
 import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
+import Spinner from "./Spinner";
+import Header from "./Header";
 
 const Cards = () => {
-  const { randomCards } = useContext(PokemonContext);
+  const { status, randomCards } = useContext(PokemonContext);
   console.log(randomCards);
   return (
-    <Main>
-      <CardsContainer>
-        {randomCards &&
-          randomCards.map((card) => <PokemonCard key={card.id} card={card} />)}
-      </CardsContainer>
-    </Main>
+    <>
+      <Header />
+      <Main>
+        {status === "loading" ? (
+          <Spinner />
+        ) : (
+          <CardsContainer>
+            {randomCards &&
+              randomCards.map((card) => (
+                <PokemonCard key={card.id} card={card} />
+              ))}
+          </CardsContainer>
+        )}
+      </Main>
+    </>
   );
 };
 
@@ -25,6 +36,7 @@ const Main = styled.main`
     #00bf72,
     #a8eb12
   );
+  width: 100%;
 `;
 
 const CardsContainer = styled.div`
