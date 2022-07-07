@@ -8,6 +8,14 @@ import styled from "styled-components";
 const Header = () => {
   const { getNewDeck, getRandomCards } = useContext(PokemonContext);
 
+  const scroll = () => {
+    window.scroll({
+      top: document.body.offsetHeight,
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Container>
       <LinkTo to="/">
@@ -15,7 +23,14 @@ const Header = () => {
       </LinkTo>
       <div>
         <ButtonDeck onClick={getNewDeck}>Get new deck</ButtonDeck>
-        <ButtonCards onClick={getRandomCards}>Get random cards</ButtonCards>
+        <ButtonCards
+          onClick={() => {
+            getRandomCards();
+            scroll();
+          }}
+        >
+          Get random cards
+        </ButtonCards>
       </div>
       <div></div>
     </Container>

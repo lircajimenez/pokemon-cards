@@ -7,7 +7,14 @@ const PokemonCard = ({ card }) => {
 
   return (
     <>
-      <Wrapper tabIndex={0}>
+      <Wrapper
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            setOpenModal(true);
+          }
+        }}
+      >
         <img
           src={card.images.small}
           alt={`Card of ${card.name}`}
