@@ -21,7 +21,6 @@ export const PokemonProvider = ({ children }) => {
           }
         );
         const data = await res.json();
-        console.log("fetch fired");
         setAllCards(data.data);
         setStatus("idle");
       } catch (err) {

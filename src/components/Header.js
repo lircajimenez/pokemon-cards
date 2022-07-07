@@ -91,18 +91,18 @@ const ButtonCards = styled(Button)`
   font-weight: 600;
   text-shadow: 1px 1px 2px black;
 
-  &:disabled,
-  &:hover:disabled {
-    background: #707070;
-    opacity: 0.4;
-    cursor: not-allowed;
-  }
-
   &:hover {
     background-color: rgb(124, 222, 223);
     color: black;
     text-shadow: 1px 1px 2px white;
     transition-duration: 800ms;
+  }
+
+  &:disabled,
+  &:hover:disabled {
+    background: #707070;
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 
   @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
