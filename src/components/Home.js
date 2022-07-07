@@ -1,22 +1,16 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { PokemonContext } from "./PokemonContext";
-import styled, { keyframes } from "styled-components";
 import { Button } from "../style/GlobalStyles";
+import { size } from "../style/Breakpoints";
+import styled, { keyframes } from "styled-components";
 import pokemonLogo from "../assets/pokemon.png";
 import pikachu from "../assets/pikachu-logo.svg";
 import charizard from "../assets/charizard.svg";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { status, getRandomCards } = useContext(PokemonContext);
-
-  let isDisabled;
-  if (status === "loading") {
-    isDisabled = true;
-  } else if (status === "idle") {
-    isDisabled = false;
-  }
+  const { isDisabled, getRandomCards } = useContext(PokemonContext);
 
   return (
     <Container>
@@ -70,13 +64,13 @@ const Wrapper = styled.div`
   -webkit-backdrop-filter: blur(6.4px);
   border: 1px solid rgba(255, 255, 255, 0.6);
 
-  @media (min-width: 200px) and (max-width: 620px) {
+  @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
     flex-direction: column;
     align-items: center;
     height: 80vh;
   }
 
-  @media (min-width: 1920px) and (max-width: 3000px) {
+  @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
     height: 60vh;
   }
 `;
@@ -87,14 +81,14 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  @media (min-width: 200px) and (max-width: 620px) {
+  @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
     width: 100%;
     height: 70%;
     font-size: 0.7em;
     justify-content: space-around;
   }
 
-  @media (min-width: 1920px) and (max-width: 3000px) {
+  @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
     font-size: 1.65em;
   }
 `;
@@ -102,11 +96,11 @@ const Left = styled.div`
 const Logo = styled.img`
   width: 180px;
 
-  @media (min-width: 200px) and (max-width: 620px) {
+  @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
     width: 90px;
   }
 
-  @media (min-width: 1920px) and (max-width: 3000px) {
+  @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
     width: 220px;
   }
 `;
@@ -177,7 +171,7 @@ const Rigth = styled.div`
 const Charizard = styled.img`
   width: 500px;
 
-  @media (min-width: 200px) and (max-width: 620px) {
+  @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
     display: none;
   }
 `;
@@ -186,7 +180,7 @@ const Pikachu = styled.img`
   display: none;
   width: 200px;
 
-  @media (min-width: 200px) and (max-width: 620px) {
+  @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
     display: block;
   }
 `;

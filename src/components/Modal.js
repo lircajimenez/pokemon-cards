@@ -1,3 +1,4 @@
+import { size } from "../style/Breakpoints";
 import { Button } from "../style/GlobalStyles";
 import styled from "styled-components";
 
@@ -91,7 +92,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: 200px) and (max-width: 620px) {
+  @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
     width: 85vw;
     height: 95vh;
     overflow: auto;
@@ -104,7 +105,7 @@ const Body = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (min-width: 200px) and (max-width: 620px) {
+  @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
     flex-direction: column;
   }
 `;
@@ -114,7 +115,7 @@ const CardImage = styled.div`
   display: flex;
   align-items: center;
 
-  @media (min-width: 200px) and (max-width: 620px) {
+  @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
     width: 80%;
     align-self: center;
   }
@@ -140,12 +141,12 @@ const CardInfo = styled.div`
   align-items: center;
   justify-content: space-around;
 
-  @media (min-width: 200px) and (max-width: 620px) {
+  @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
     font-size: 0.85em;
     width: 100%;
   }
 
-  @media (min-width: 1920px) and (max-width: 3000px) {
+  @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
     font-size: 1.5em;
   }
 `;
@@ -167,11 +168,11 @@ const Logo = styled.div`
     width: 180px;
     max-width: 200px;
 
-    @media (min-width: 200px) and (max-width: 620px) {
+    @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
       width: 120px;
     }
 
-    @media (min-width: 1920px) and (max-width: 3000px) {
+    @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
       width: 300px;
     }
   }
@@ -188,12 +189,12 @@ const ButtonM = styled(Button)`
     transition-duration: 500ms;
   }
 
-  @media (min-width: 200px) and (max-width: 620px) {
+  @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
     padding: 10px 20px;
     font-size: 0.85em;
   }
 
-  @media (min-width: 1920px) and (max-width: 3000px) {
+  @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
     padding: 10px 45px;
     font-size: 1.5em;
     height: 55px;

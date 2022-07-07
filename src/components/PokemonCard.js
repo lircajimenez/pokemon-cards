@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "./Modal";
+import { size } from "../style/Breakpoints";
 import styled from "styled-components";
 
 const PokemonCard = ({ card }) => {
@@ -33,11 +34,11 @@ const Wrapper = styled.div`
     width: 200px;
     height: 100%;
 
-    @media (min-width: 200px) and (max-width: 620px) {
+    @media (min-width: ${size.small}) and (max-width: ${size.medium}) {
       width: 120px;
     }
 
-    @media (min-width: 1920px) and (max-width: 3000px) {
+    @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
       width: 300px;
     }
   }

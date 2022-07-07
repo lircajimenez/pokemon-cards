@@ -3,10 +3,11 @@ import { PokemonContext } from "./PokemonContext";
 import { Link } from "react-router-dom";
 import { VscHome } from "react-icons/vsc";
 import { Button } from "../style/GlobalStyles";
+import { size } from "../style/Breakpoints";
 import styled from "styled-components";
 
 const Header = () => {
-  const { getNewDeck, getRandomCards } = useContext(PokemonContext);
+  const { isDisabled, getNewDeck, getRandomCards } = useContext(PokemonContext);
 
   const scroll = () => {
     window.scroll({
@@ -28,6 +29,7 @@ const Header = () => {
             getRandomCards();
             scroll();
           }}
+          disabled={isDisabled}
         >
           Get random cards
         </ButtonCards>
@@ -48,7 +50,7 @@ const Container = styled.nav`
   justify-content: space-between;
   background: rgb(21, 33, 40);
 
-  @media (min-width: 1920px) and (max-width: 3000px) {
+  @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
     height: 10vh;
   }
 `;
@@ -76,7 +78,7 @@ const ButtonDeck = styled(Button)`
     transition-duration: 800ms;
   }
 
-  @media (min-width: 1920px) and (max-width: 3000px) {
+  @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
     padding: 5px 45px;
     font-size: 1.5em;
     height: 55px;
@@ -89,6 +91,13 @@ const ButtonCards = styled(Button)`
   font-weight: 600;
   text-shadow: 1px 1px 2px black;
 
+  &:disabled,
+  &:hover:disabled {
+    background: #707070;
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
   &:hover {
     background-color: rgb(124, 222, 223);
     color: black;
@@ -96,7 +105,7 @@ const ButtonCards = styled(Button)`
     transition-duration: 800ms;
   }
 
-  @media (min-width: 1920px) and (max-width: 3000px) {
+  @media (min-width: ${size.large}) and (max-width: ${size.xlarge}) {
     padding: 5px 45px;
     font-size: 1.5em;
     height: 55px;

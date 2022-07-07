@@ -44,13 +44,20 @@ export const PokemonProvider = ({ children }) => {
     getRandomCards();
   };
 
+  let isDisabled;
+  if (status === "loading") {
+    isDisabled = true;
+  } else if (status === "idle") {
+    isDisabled = false;
+  }
+
   return (
     <>
       <PokemonContext.Provider
         value={{
           randomCards,
           status,
-          setStatus,
+          isDisabled,
           getNewDeck,
           getRandomCards,
         }}
