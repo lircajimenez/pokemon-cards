@@ -40,7 +40,8 @@ export const PokemonProvider = ({ children }) => {
   const getNewDeck = () => {
     setCounter((prevSate) => prevSate + 1);
     setStatus("loading");
-    getRandomCards();
+
+    if (status === "idle") getRandomCards();
   };
 
   let isDisabled;

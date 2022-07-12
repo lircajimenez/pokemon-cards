@@ -1,12 +1,18 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { PokemonContext } from "./PokemonContext";
+import Header from "./Header";
+import Spinner from "./Spinner";
 import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
-import Spinner from "./Spinner";
-import Header from "./Header";
 
 const Cards = () => {
-  const { status, randomCards } = useContext(PokemonContext);
+  const { status, randomCards, getRandomCards } = useContext(PokemonContext);
+
+  useEffect(() => {
+    if (status === "idle") {
+      getRandomCards();
+    }
+  }, [status]);
 
   return (
     <>
